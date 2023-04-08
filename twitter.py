@@ -55,37 +55,37 @@ def main():
 
 
     elif choice == "Search":
-        # Every time after the last tweet the database will be cleared for updating new scraping data
+        
         twtdb_main.delete_many({})
 
-        # Form for collecting user input for twitter scrape
+        
         with st.form(key='form1'):
-            # Hashtag input
+            
             st.subheader("Tweet searching Form")
             st.write("Enter the hashtag or keyword to perform the twitter scraping👇#")
             query = st.text_input('Hashtag or keyword')
 
-            # No of tweets for scraping
+            
             st.write("Enter the limit for the data scraping: Maximum limit is 1000 tweets")
             limit = st.number_input('Insert a number', min_value=0, max_value=1000, step=10)
 
-            # From date to end date for scraping
+            
             st.write("Enter the Starting date to scrap the tweet data")
             start = st.date_input('Start date')
             end = st.date_input('End date')
 
-            # Submit button to scrap
+            
             submit_button = st.form_submit_button(label="Tweet Scrap")
 
         if submit_button:
             st.success(f"Tweet hashtag {query} received for scraping".format(query))
 
-            # TwitterSearchScraper will scrape the data and insert into MongoDB database
+           
             for tweet in sntwitter.TwitterSearchScraper(f'from:{query} since:{start} until:{end}').get_items():
-                # To verify the limit if condition is set
+                
                 if tweets == limit:
                     break
-                # Stores the tweet data into MongoDB until the limit  is reached
+               
                 else:
                     new = {"date": tweet.date, "user": tweet.user.username, "url": tweet.url,
                            "followersCount": tweet.user.followersCount, "friendsCount": tweet.user.friendsCount,
@@ -93,7 +93,7 @@ def main():
                     twtdb_main.insert_one(new)
                     tweets += 1
 
-            # Display the total tweets scraped
+            
             df = pd.DataFrame(list(twtdb_main.find()))
             cnt = len(df)
             st.success(f"Total number of tweets scraped for the input query is := {cnt}".format(cnt))
