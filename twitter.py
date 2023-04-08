@@ -34,7 +34,7 @@ def main():
         with st.expander("Twitter Scrapper"):
             st.write('''Twitter Scraper will scrape the data from Public Twitter profiles.
                     It will collect the data about **date, id, url, tweet content, users/tweeters,reply count, 
-                    retweet count, language, source, like count, followers, friends** and lot more information 
+                    retweet count, languages, sources, like count,number of followers, friends** and lot more information 
                     to gather the real facts about the Tweets.''')
 
 
