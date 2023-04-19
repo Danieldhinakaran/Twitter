@@ -20,7 +20,6 @@ I have Created a GUI using streamlit that contains the follwing  features
 1.	Download data as CSV
 2.	Download data as JSON
 3.	Display All the Tweets scraped
-4.	All the Uploaded Collections in Database are Displayed in the left side
 
 # LIBRARIES AND PACKAGES TO BE INSTALLED AND IMPORTED:
 1.	Snscrape: import snscrape.modules.twitter as sntwitter
