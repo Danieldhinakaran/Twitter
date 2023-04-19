@@ -43,7 +43,7 @@ def main():
                    It scrapes **user profiles, hashtages, other tweet information** and returns the discovered items from the relavent posts/tweets.''')
 
 
-        with st.expander("Mondodb"):
+        with st.expander("MongoDB"):
             st.write('''MongoDB is an open source document database used for storing unstrcutured data. The data is stored as JSON like documents called BSON. 
                   It is used by developers to work esaily with real time data analystics, content management and lot of other web applications.''')
 
